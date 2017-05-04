@@ -2,16 +2,17 @@
 
 let program = require('commander'),
   inquirer = require('inquirer'),
-  Promise = require("bluebird"),
+  Promise = require('bluebird'),
   shell = require('shelljs'),
-
+  fs = require('fs'),
+  packageJSON = require('./package.json'),
   //actual prompts
-  prompt = require("./prompts.js"),
+  prompt = require('./prompts.js'),
   //List of questions
-  questions = require("./questions.js");
+  questions = require('./questions.js');
 
 
-shell.exec('echo "Welcome to SemanticVersion 1.0.5 written by Joseph Sanchez"');
+shell.exec('echo "Welcome to SemanticVersion ' + packageJSON.version + ' !!!"');
 
 // What is changing on the version (Major, minor, patch)?
 let gatherType = function () {
@@ -86,38 +87,46 @@ let gatherMessage = function (information) {
 
 
 
+if (fs.existsSync('./package.json')) {
+  gatherType()
+    .then(gatherGithub)
+    .then(selectRepo)
+    .then(chooseCustom)
+    .then(gatherMessage)
+    .then(function (information) {
 
-gatherType()
-  .then(gatherGithub)
-  .then(selectRepo)
-  .then(chooseCustom)
-  .then(gatherMessage)
-  .then(function (information) {
+      //if we are not cancelling....
+      if (information.type !== 'exit/cancel') {
 
-    //if we are not cancelling....
-    if (information.type !== 'exit/cancel') {
 
-      //Increase our version number
-      var execute = 'npm version ' + information.type + ' -m "' + information.type + ' tag added ';
-      if (information.message !== 'cancel/exit') {
-        execute += ('Updated:' + information.message);
-      }
-      shell.exec(execute + '"');
 
-      //if we are sending to github
-      if (information.github === 'yes') {
-        console.log("\n\nAttempting to push to git...");
-        let repository = (information.repoType === 'other' ? information.customRepo : information.repoType);
-        execute = "git add . && git push origin " + repository + " && git push origin" + repository + " --tags"
-        shell.exec(execute);
+        //Increase our version number
+        var execute = 'npm version ' + information.type + ' -m "' + information.type + ' tag added ';
+        if (information.message !== 'cancel/exit') {
+          execute += ('Updated:' + information.message);
+        }
+        shell.exec(execute + '"');
+
+        //if we are sending to github
+        if (information.github === 'yes') {
+          console.log('\n\nAttempting to push to git...');
+          let repository = (information.repoType === 'other' ? information.customRepo : information.repoType);
+          execute = 'git add . && git push origin ' + repository + ' && git push origin ' + repository + ' --tags';
+          shell.exec(execute);
+        } else {
+          console.log('Done');
+        }
+
+
+        //exit gracefully...
       } else {
-        console.log("Done");
+        console.log('exiting Program');
       }
 
-      //exit gracefully...
-    } else {
-      console.log("exiting Program");
-    }
 
+    });
 
-  });
+} else {
+  console.log('There does not appear to be a package.json file located in this directory');
+  console.log('Please navigate to your application root and try again.');
+}

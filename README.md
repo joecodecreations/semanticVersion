@@ -10,6 +10,6 @@ Install globally by running `npm install semanticversion -g`.
 
 ## Usage
 
-While in your project root (where `package.json` is located), access the tool by running either `updateTag` or `semanticversion`.
+While in your project root (where `package.json` is located), access the tool by running either `semanticversion` or `sv`.
 
 Then you will be asked a series of questions that will help you easily publish your tags.

@@ -1,6 +1,6 @@
 {
   "name": "semanticversion",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "CLI tool to help you easily change your semantic version and push to a repository",
   "main": "index.js",
   "repository": {
@@ -13,14 +13,17 @@
   "author": "",
   "license": "MIT",
   "bin": {
-    "updateTag": "./index.js",
+    "sv": "./index.js",
     "semanticversion": "./index.js"
   },
   "dependencies": {
     "commander": "^2.9.0",
     "inquirer": "^3.0.6",
     "shelljs": "^0.7.7",
-    "bluebird": "^3.5.0"
+    "bluebird": "^3.5.0",
+    "fs": "0.0.1-security"
   },
-  "devDependencies": {}
+  "devDependencies": {
+
+  }
 }
