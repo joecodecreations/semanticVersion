@@ -11,7 +11,7 @@ let program = require('commander'),
   questions = require("./questions.js");
 
 
-shell.exec('echo "SemanticVersion 1.0.0"');
+shell.exec('echo "Welcome to SemanticVersion 1.0.5 written by Joseph Sanchez"');
 
 // What is changing on the version (Major, minor, patch)?
 let gatherType = function () {

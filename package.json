@@ -1,6 +1,6 @@
 {
   "name": "semanticversion",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "CLI tool to help you easily change your semantic version and push to a repository",
   "main": "index.js",
   "repository": {
@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bin": {
     "updateTag": "./index.js",
     "semanticversion": "./index.js"
