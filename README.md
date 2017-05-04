@@ -1,5 +1,5 @@
 
-<center><img src="http://i.imgur.com/WELuT7Y.jpg|alt=semanticversion" /></center>
+<center><img src="http://i.imgur.com/9Va0m8d.jpg|alt=semanticversion" /></center>
 
 
 semanticversion is a [NPM Module](https://www.npmjs.com/package/semanticversion) and command line tool that helps you easily change your semantic version in your `package.json` file and push the tag to git.

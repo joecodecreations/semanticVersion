@@ -4,7 +4,7 @@ module.exports = {
     var list = [{
       type: 'list',
       name: 'value',
-      message: '\n\nWhat kind of a tag update will this be?',
+      message: '\n\nWhat kind of a version update will this be?',
       choices: ['Major', 'Minor', 'Patch', 'Exit/Cancel'],
       filter: function (val) {
         return val.toLowerCase();
