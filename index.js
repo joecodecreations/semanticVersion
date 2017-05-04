@@ -1,4 +1,4 @@
-#!/usr/bin/env node --harmony
+#!/usr/bin/env node
 
 let program = require('commander'),
   inquirer = require('inquirer'),
@@ -99,7 +99,7 @@ gatherType()
 
       //Increase our version number
       var execute = 'npm version ' + information.type + ' -m "' + information.type + ' tag added ';
-      if (information.message !== 'cancel / exit') {
+      if (information.message !== 'cancel/exit') {
         execute += ('Updated:' + information.message);
       }
       shell.exec(execute + '"');
@@ -113,7 +113,6 @@ gatherType()
 
       //exit gracefully...
     } else {
-
       console.log("exiting Program");
     }
 
