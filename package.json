@@ -1,0 +1,21 @@
+{
+  "name": "semanticVersion",
+  "version": "1.0.0",
+  "description": "CLI tool to help you easily change your semantic version and push to a repository",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "updateTag": "./index.js"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "inquirer": "^3.0.6",
+    "shelljs": "^0.7.7",
+    "bluebird": "^3.5.0"
+  },
+  "devDependencies": {}
+}
