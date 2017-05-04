@@ -98,13 +98,12 @@ if (fs.existsSync('./package.json')) {
       //if we are not cancelling....
       if (information.type !== 'exit/cancel') {
 
-
-
         //Increase our version number
         var execute = 'npm version ' + information.type + ' -m "' + information.type + ' tag added ';
         if (information.message !== 'cancel/exit') {
           execute += ('Updated:' + information.message);
         }
+        console.log("Incrementing package to:");
         shell.exec(execute + '"');
 
         //if we are sending to github
@@ -113,9 +112,15 @@ if (fs.existsSync('./package.json')) {
           let repository = (information.repoType === 'other' ? information.customRepo : information.repoType);
           execute = 'git add . && git push origin ' + repository + ' && git push origin ' + repository + ' --tags';
           shell.exec(execute);
-        } else {
-          console.log('Done');
+
         }
+
+        //Wrap things up
+        var finalMessage = '\n Semantiv Verson Successfully Incremented';
+        if (information.github === 'yes') {
+          finalMessage += ' and pushed via git to ' + repository;
+        }
+        console.log(finalMessage);
 
 
         //exit gracefully...
