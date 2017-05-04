@@ -1,11 +1,11 @@
 {
   "name": "semanticversion",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "CLI tool to help you easily change your semantic version and push to a repository",
   "main": "index.js",
-  "repository" :
-  { "type" : "git",
-     "url" : "https://github.com/joecodecreations/semanticVersion.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joecodecreations/semanticVersion.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
