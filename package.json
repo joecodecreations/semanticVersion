@@ -1,6 +1,6 @@
 {
-  "name": "semanticVersion",
-  "version": "1.0.0",
+  "name": "semanticversion",
+  "version": "1.0.1",
   "description": "CLI tool to help you easily change your semantic version and push to a repository",
   "main": "index.js",
   "repository" :
@@ -13,7 +13,8 @@
   "author": "",
   "license": "ISC",
   "bin": {
-    "updateTag": "./index.js"
+    "updateTag": "./index.js",
+    "semanticversion": "./index.js",
   },
   "dependencies": {
     "commander": "^2.9.0",
