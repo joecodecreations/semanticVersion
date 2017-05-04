@@ -111,7 +111,7 @@ gatherType()
         execute = "git add . && git push " + repository + " && git push " + repository + " --tags"
         shell.exec(execute);
       } else {
-        console.log("Done") l
+        console.log("Done");
       }
 
       //exit gracefully...
