@@ -4,7 +4,7 @@ module.exports = {
     var list = [{
       type: 'list',
       name: 'value',
-      message: '\n\nWhat kind of a version update will this be?',
+      message: 'What kind of a version update will this be?',
       choices: ['Major', 'Minor', 'Patch', 'Exit/Cancel'],
       filter: function (val) {
         return val.toLowerCase();
@@ -12,7 +12,7 @@ module.exports = {
     }, {
       type: 'list',
       name: 'value',
-      message: '\n\nCommit Changes to Github?',
+      message: 'Commit Changes to Github?',
       choices: ['Yes', 'No'],
       filter: function (val) {
         return val.toLowerCase();
@@ -20,7 +20,7 @@ module.exports = {
     }, {
       type: 'list',
       name: 'value',
-      message: '\n\nSelect which repo you wish to push to;',
+      message: 'Select which repo you wish to push to;',
       choices: ['Master', 'Dev', 'Other'],
       filter: function (val) {
         return val.toLowerCase();
@@ -28,11 +28,11 @@ module.exports = {
     }, {
       type: 'input',
       name: 'value',
-      message: '\n\nEnter your custom repository name:'
+      message: 'Enter your custom repository name:'
     }, {
       type: 'input',
       name: 'value',
-      message: '\n\nEnter your commit message for your push:'
+      message: 'Enter your commit message for your push:'
     }];
 
     return list;
