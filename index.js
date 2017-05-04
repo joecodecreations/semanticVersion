@@ -11,7 +11,7 @@ let program = require('commander'),
   //List of questions
   questions = require('./questions.js');
 
-
+console.log('\n');
 shell.exec('echo "Welcome to SemanticVersion ' + packageJSON.version + ' !!!"');
 
 // What is changing on the version (Major, minor, patch)?
