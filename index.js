@@ -36,10 +36,8 @@ let gatherGithub = function (information) {
     } else {
       resolve(information);
     }
-
   });
 };
-
 
 //select repo name
 let selectRepo = function (information) {
@@ -52,7 +50,6 @@ let selectRepo = function (information) {
     } else {
       resolve(information);
     }
-
   });
 };
 
@@ -67,10 +64,10 @@ let chooseCustom = function (information) {
     } else {
       resolve(information);
     }
-
   });
 };
 
+//Gather Commit Message
 let gatherMessage = function (information) {
   return new Promise(function (resolve, reject) {
     if (information.github === 'yes') {
@@ -81,11 +78,8 @@ let gatherMessage = function (information) {
     } else {
       resolve(information);
     }
-
   });
 };
-
-
 
 if (fs.existsSync('./package.json')) {
   gatherType()
@@ -103,7 +97,7 @@ if (fs.existsSync('./package.json')) {
         if (information.message !== 'cancel/exit') {
           execute += ('Updated:' + information.message);
         }
-        console.log("Incrementing package to:");
+        console.log("\nIncrementing package to:");
         shell.exec(execute + '"');
 
         //if we are sending to github
@@ -112,22 +106,19 @@ if (fs.existsSync('./package.json')) {
           let repository = (information.repoType === 'other' ? information.customRepo : information.repoType);
           execute = 'git add . && git push origin ' + repository + ' && git push origin ' + repository + ' --tags';
           shell.exec(execute);
-
         }
 
         //Wrap things up
-        var finalMessage = '\n Semantiv Verson Successfully Incremented';
+        var finalMessage = '\n Semantic Verson Successfully Incremented';
         if (information.github === 'yes') {
           finalMessage += ' and pushed via git to ' + repository;
         }
         console.log(finalMessage);
 
-
         //exit gracefully...
       } else {
-        console.log('exiting Program');
+        console.log('\nExiting Program');
       }
-
 
     });
 
