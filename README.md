@@ -1,5 +1,6 @@
 # SemanticVersion
-<center>[[http://i.imgur.com/RIsaHxo.png|alt=semanticversion]]</center>
+<center><img src="http://i.imgur.com/RIsaHxo.png|alt=semanticversion" /></center>
+
 
 CLI tool to help you easily change your semantic version and push to a repository.
 
