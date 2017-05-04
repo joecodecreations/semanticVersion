@@ -4,7 +4,7 @@ module.exports = {
     var list = [{
       type: 'list',
       name: 'value',
-      message: 'What kind of a version update will this be?',
+      message: 'Select the semantic version you want to bump:',
       choices: ['Major', 'Minor', 'Patch', 'Exit/Cancel'],
       filter: function (val) {
         return val.toLowerCase();
