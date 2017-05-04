@@ -108,7 +108,7 @@ gatherType()
       if (information.github === 'yes') {
         console.log("\n\nAttempting to push to git...");
         let repository = (information.repoType === 'other' ? information.customRepo : information.repoType);
-        execute = "git add . && git push " + repository + " && git push " + repository + " --tags"
+        execute = "git add . && git push origin " + repository + " && git push origin" + repository + " --tags"
         shell.exec(execute);
       } else {
         console.log("Done");
