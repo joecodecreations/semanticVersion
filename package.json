@@ -1,6 +1,6 @@
 {
   "name": "semanticversion",
-  "version": "1.0.8",
+  "version": "2.0.0",
   "description": "CLI tool to help you easily change your semantic version and push to a repository",
   "main": "index.js",
   "repository": {
