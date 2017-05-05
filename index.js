@@ -6,6 +6,7 @@ let program = require('commander'),
   shell = require('shelljs'),
   fs = require('fs'),
   packageJSON = require('./package.json'),
+  exec = require('child_process').exec,
   //actual prompts
   prompt = require('./prompts.js'),
   //List of questions
@@ -13,6 +14,41 @@ let program = require('commander'),
 
 console.log('\n');
 shell.exec('echo "Welcome to SemanticVersion ' + packageJSON.version + ' !!!"');
+
+function terminal(command, callback) {
+  exec(command, function (error, stdout, stderr) {
+    callback(stdout);
+  });
+}
+
+//select repo name
+let processGit = function () {
+  return new Promise(function (resolve, reject) {
+
+    //if we are sending to github
+    if (information.github === 'yes') {
+      console.log('\n\nAttempting to push to git...\n');
+      let repository = (information.repoType === 'other' ? information.customRepo : information.repoType);
+      execute = 'git add . && git push origin ' + repository + ' && git push origin ' + repository + ' --tags';
+
+      let execOptions;
+      shell.exec(execute, execOptions, function (callback) {
+        console.log(callback);
+      });
+      // terminal(execute)
+      //   .then(function (callback) {
+      //     console.log("done:" + callback);
+      //   });
+
+
+
+    }
+
+
+
+  });
+};
+
 
 // What is changing on the version (Major, minor, patch)?
 let gatherType = function () {
@@ -87,6 +123,7 @@ if (fs.existsSync('./package.json')) {
     .then(selectRepo)
     .then(chooseCustom)
     .then(gatherMessage)
+    .then(processGit)
     .then(function (information) {
 
       //if we are not cancelling....
@@ -100,24 +137,16 @@ if (fs.existsSync('./package.json')) {
         console.log("\nIncrementing package to:");
         shell.exec(execute + '"');
 
-        //if we are sending to github
-        if (information.github === 'yes') {
-          console.log('\n\nAttempting to push to git...');
-          let repository = (information.repoType === 'other' ? information.customRepo : information.repoType);
-          execute = 'git add . && git push origin ' + repository + ' && git push origin ' + repository + ' --tags';
-          shell.exec(execute);
-        }
-
         //Wrap things up
-        var finalMessage = '\n Semantic Verson Successfully Incremented';
+        var finalMessage = '\n Semantic version successfully incremented';
         if (information.github === 'yes') {
-          finalMessage += ' and pushed via git to ' + repository;
+          finalMessage += ' and pushed via Git';
         }
-        console.log(finalMessage);
+        console.log(finalMessage + '\n');
 
         //exit gracefully...
       } else {
-        console.log('\nExiting Program');
+        console.log('\nExiting Program\n');
       }
 
     });
