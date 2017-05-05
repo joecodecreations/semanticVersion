@@ -2,7 +2,7 @@
 <img src="https://raw.githubusercontent.com/joecodecreations/semanticVersion/master/resources/images/semantic_header.jpg" />
 
 
-Semanticversion is a [NPM Module](https://www.npmjs.com/package/semanticversion) and command line tool that helps you easily change your semantic version in your `package.json` file and push the new tag to git.
+Semanticversion is a global [NPM Module](https://www.npmjs.com/package/semanticversion) and command line tool that helps you easily change your semantic version in your `package.json` file and push the new tag to git.
 
 
 
@@ -11,7 +11,7 @@ Semanticversion is a [NPM Module](https://www.npmjs.com/package/semanticversion)
 Install globally by running `npm install semanticversion -g`
 
 ## Details
-A semantic version is divided into several categories including: major, minor and patch.[Learn more about semantic versioning](http://semver.org/)
+A semantic version is divided into several categories including: major, minor and patch. [Read more about semantic versioning](http://semver.org/)
 
 <img src="https://raw.githubusercontent.com/joecodecreations/semanticVersion/master/resources/images/diagram.jpg" />
 
