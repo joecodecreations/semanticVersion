@@ -2,7 +2,7 @@
 <img src="https://raw.githubusercontent.com/joecodecreations/semanticVersion/master/resources/images/semantic_header.jpg" />
 
 
-semanticversion is a [NPM Module](https://www.npmjs.com/package/semanticversion) and command line tool that helps you easily change your semantic version in your `package.json` file and push the tag to git.
+Semanticversion is a [NPM Module](https://www.npmjs.com/package/semanticversion) and command line tool that helps you easily change your semantic version in your `package.json` file and push the tag to git.
 
 
 ## Installation
