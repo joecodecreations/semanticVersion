@@ -21,7 +21,8 @@
     "inquirer": "^3.0.6",
     "shelljs": "^0.7.7",
     "bluebird": "^3.5.0",
-    "fs": "0.0.1-security"
+    "fs": "0.0.1-security",
+    "fs-extra": "^3.0.1"
   },
   "devDependencies": {
 
