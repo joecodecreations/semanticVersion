@@ -81,7 +81,7 @@ module.exports = {
     if (information.type !== 'exit/cancel') {
 
       //Increase our version number
-      var execute = 'npm version ' + information.type + ' -m "' + information.type + ' tag added ';
+      var execute = 'npm version ' + information.type + ' -m "' + information.type + ' version incremented ';
       if (information.message !== 'cancel/exit') {
         execute += ('Updated:' + information.message);
       }
