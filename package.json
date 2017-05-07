@@ -7,9 +7,6 @@
     "type": "git",
     "url": "https://github.com/joecodecreations/semanticVersion.git"
   },
-  "engines" : {
-    "node" : ">=6.10.0"
-  },
   "scripts": {
     "test": "mocha"
   },
