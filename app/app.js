@@ -8,8 +8,13 @@ const program = require('commander'),
   grab = require('./grab.js');
 
 module.exports = {
-
-  showPackageInformation: function () {
+  introMessage: function () {
+    return new Promise(function (resolve, reject) {
+      console.log(chalk.green('\nWELCOME TO ') + chalk.white.bold('SEMANTIC VERSION') + chalk.green(' !'));
+      resolve();
+    });
+  },
+  showPackageInformation: function (information) {
     return new Promise(function (resolve, reject) {
       grab.packageInformation(function (information) {
         console.log(chalk.green('\nYour package, ') + chalk.yellow.bold(information.packageName) + chalk.green(', is currently on version ') + chalk.yellow.bold(information.version));
@@ -51,11 +56,11 @@ module.exports = {
       }
     });
   },
-  chooseCustomBranch: function (information) {
+  choosecustomBranch: function (information) {
     return new Promise(function (resolve, reject) {
       if (information.repoType === 'other') {
         prompt.output(3, function (data) {
-          information.customRepo = data;
+          information.customBranch = data;
           resolve(information);
         });
       } else {
@@ -91,7 +96,7 @@ module.exports = {
       //if we are sending to github
       if (information.github === 'yes') {
         console.log(chalk.green('\n\nAttempting to push to git...\n'));
-        let repository = (information.repoType === 'other' ? information.customRepo : information.repoType);
+        let repository = (information.repoType === 'other' ? information.customBranch : information.repoType);
         execute = 'git add . && git push origin ' + repository + ' && git push origin ' + repository + ' --tags';
         shell.exec(execute);
       }
