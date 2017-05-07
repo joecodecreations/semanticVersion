@@ -11,10 +11,10 @@ module.exports = {
 
   showPackageInformation: function () {
     return new Promise(function (resolve, reject) {
-      let information = grab.packageInformation();
-      console.log(chalk.green('\nYour package, ') + chalk.yellow.bold(information.packageName) + chalk.green(', is currently on version ') + chalk.yellow.bold(information.version));
-      resolve();
-
+      grab.packageInformation(function (information) {
+        console.log(chalk.green('\nYour package, ') + chalk.yellow.bold(information.packageName) + chalk.green(', is currently on version ') + chalk.yellow.bold(information.version));
+        resolve();
+      });;
     });
   },
   whichBump: function () {
