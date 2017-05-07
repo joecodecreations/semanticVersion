@@ -8,7 +8,7 @@ module.exports = {
         let information = {
           version: 'v' + jsonObject.version,
           packageName: jsonObject.name.toUpperCase()
-        }
+        };
         cb(information);
       })
       .catch(err => {
