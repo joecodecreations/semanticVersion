@@ -18,7 +18,7 @@ A semantic version is divided into several categories including: major, minor an
 
 ## Usage
 
-While in the project root, and on the same level where `package.json` is located, you can access **semanticversion** by entering `semanticversion` in the CLI or for a shortcut, use `sv`.
+While in the project root, and on the same level where `package.json` is located, you can run **semanticversion** by entering `semanticversion` in the CLI or simply `sv` as a shortcut.  
 
 
 ## Options
