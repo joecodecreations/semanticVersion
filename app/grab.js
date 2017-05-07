@@ -1,15 +1,14 @@
 const fs = require('fs-extra');
 
 module.exports = {
-  packageInformation: function (cb) {
-    fs.readJson('./package.json')
+  packageInformation: function (loc, cb) {
+    fs.readJson(loc)
       .then(jsonObject => {
 
         let information = {
           version: 'v' + jsonObject.version,
           packageName: jsonObject.name.toUpperCase()
         }
-
         cb(information);
       })
       .catch(err => {
